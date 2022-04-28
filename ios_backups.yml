@@ -1,0 +1,16 @@
+---
+- name: Backup Cisco IOS Switch Config
+  hosts: switches
+  connection: network_cli
+  gather_facts: no
+  tasks:
+    - name: Collect current  timestamp
+      shell: date +%Y-%m-%d
+      register: timestamp
+    - name: Backup Config
+      ios_config:
+        backup: yes
+        backup_options:
+          dir_path: "switchBackups"
+          filename: "{{ inventory_hostname }}-{{ timestamp.stdout }}.config"
+...

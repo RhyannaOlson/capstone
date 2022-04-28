@@ -1,0 +1,11 @@
+[switches]
+SW1 ansible_host=10.20.20.251
+SW2 ansible_host=10.20.20.252
+SW3 ansible_host=10.20.20.253
+
+[switches:vars]
+ansible_user=group2admin
+ansible_ssh_password=$uperman22!
+ansible_network_os=ios
+become = yes
+become_method = enable

@@ -3,8 +3,8 @@
   hosts: switches
   connection: network_cli
   gather_facts: no
-  ansible_become: yes
-  ansible_become_method: enable
+  become: yes
+  become_method: enable
   tasks:
     - name: Collect current  timestamp
       shell: date +%Y-%m-%d
